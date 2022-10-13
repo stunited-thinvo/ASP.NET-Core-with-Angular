@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="form-wrapper border p-3 rounded-3">
+    <form
+      class="example-form"
+      [formGroup]="registerForm"
+      (ngSubmit)="registerSubmit()"
+    >
+      <h1 class="title">Register</h1>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Ex. pat@example.com"
+        />
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error
+          *ngIf="Email.hasError('email') && !Email.hasError('required')"
+        >
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="Email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input type="name" matInput formControlName="name" />
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error *ngIf="Name.hasError('required')">
+          Password <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input type="phone" matInput formControlName="phone" />
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error
+          *ngIf="
+            Phone.hasError('pattern') ||
+            Phone.hasError('minlength') ||
+            Phone.hasError('maxlength')
+          "
+        >
+          Phone invalid
+        </mat-error>
+        <mat-error *ngIf="Phone.hasError('required')">
+          Password <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" />
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error
+          *ngIf="
+            Password.hasError('minlength') || Password.hasError('maxlength')
+          "
+        >
+          Password should be at least 6 and at the max 15 characters long.
+        </mat-error>
+        <mat-error *ngIf="Password.hasError('required')">
+          Password <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="example-button-row">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="registerForm.invalid"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
