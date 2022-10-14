@@ -37,10 +37,7 @@ namespace ASP.NET_CORE.Controllers
                     return BadRequest(new AuthResult()
                     {
                         Result = false,
-                        Errors = new List<string>()
-                        {
-                            "Email is already exist"
-                        }
+                        Errors = "Email is already exist"
                     });
                 }
 
@@ -73,10 +70,7 @@ namespace ASP.NET_CORE.Controllers
 
                 return BadRequest(new AuthResult()
                 {
-                    Errors = new List<string>()
-                    {
-                        "Server error"
-                    },
+                    Errors = "Server error",
                     Result = false
                 });
             }
@@ -92,10 +86,7 @@ namespace ASP.NET_CORE.Controllers
             {
                 return BadRequest(new AuthResult()
                 {
-                    Errors = new List<string>()
-                    {
-                        "Invalid email"
-                    },
+                    Errors = "Invalid email"
                 });
             }
 
@@ -105,10 +96,7 @@ namespace ASP.NET_CORE.Controllers
             {
                 return BadRequest(new AuthResult()
                 {
-                    Errors = new List<string>()
-                    {
-                        "Ivalid params"
-                    },
+                    Errors = "Ivalid params"
                 });
             }
 
@@ -130,20 +118,14 @@ namespace ASP.NET_CORE.Controllers
                 if (existing_user == null)
                     return BadRequest(new AuthResult()
                     {
-                        Errors = new List<string>()
-                        {
-                            "User is not exist"
-                        },
+                        Errors = "User is not exist",
                         Result = false
                     });
 
                 if (!existing_user.EmailConfirmed)
                     return BadRequest(new AuthResult()
                     {
-                        Errors = new List<string>()
-                        {
-                            "User is not confirmed"
-                        },
+                        Errors = "User is not confirmed",
                         Result = false
                     });
 
@@ -152,10 +134,7 @@ namespace ASP.NET_CORE.Controllers
                 if (!isCorrect)
                     return BadRequest(new AuthResult()
                     {
-                        Errors = new List<string>()
-                        {
-                            "Wrong password"
-                        },
+                        Errors = "Wrong password",
                         Result = false
                     });
 
@@ -170,10 +149,7 @@ namespace ASP.NET_CORE.Controllers
 
             return BadRequest(new AuthResult()
             {
-                Errors = new List<string>()
-                {
-                    "Invalid payload"
-                },
+                Errors = "Invalid payload",
                 Result = false
             });
         }
