@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  baseServiceUrl = 'https://localhost:4400';
+  baseServiceUrl = 'https://localhost:7009/api/';
 
   registerUser(user: Array<string>) {
     return this.http.post(
@@ -26,13 +26,15 @@ export class AuthService {
 
   loginUser(loginInfo: Array<string>) {
     return this.http.post(
-      this.baseServiceUrl + 'LoginUser',
+      this.baseServiceUrl + 'Authentication/Login',
       {
-        Email: loginInfo[0],
-        Pwd: loginInfo[1],
+        email: loginInfo[0],
+        password: loginInfo[1],
       },
       {
-        responseType: 'text',
+        headers: new HttpHeaders({
+          "Content-Type": "application/json"
+        })
       }
     );
   }
