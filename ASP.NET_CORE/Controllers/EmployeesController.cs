@@ -1,10 +1,13 @@
 ﻿using ASP.NET_CORE.Database;
 using ASP.NET_CORE.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASP.NET_CORE.Controllers
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     [Route("/api/[controller]")]
     public class EmployeesController : ControllerBase
