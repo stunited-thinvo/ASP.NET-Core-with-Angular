@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon'
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -20,6 +22,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { ListUserComponent } from './users/list-user/list-user.component';
 import { ChangePasswordComponent } from './users/change-password/change-password.component';
+import { AddUserComponent } from './users/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { ChangePasswordComponent } from './users/change-password/change-password
     EditUserComponent,
     ListUserComponent,
     ChangePasswordComponent,
+    AddUserComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -43,7 +47,8 @@ import { ChangePasswordComponent } from './users/change-password/change-password
       { path: 'register', component: RegisterComponent },
       { path: 'home', component: HomeComponent },
       { path: 'users', component: ListUserComponent },
-      { path: 'users/edit', component: EditUserComponent },
+      { path: 'users/add', component: AddUserComponent },
+      { path: 'users/edit/:id', component: EditUserComponent },
       { path: 'users/changePassWord', component: ChangePasswordComponent },
       { path: '**', component: PageNotFoundComponent },
     ]),
@@ -52,6 +57,8 @@ import { ChangePasswordComponent } from './users/change-password/change-password
     MatCardModule,
     MatButtonModule,
     MatTableModule,
+    MatIconModule,
+    MatToolbarModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

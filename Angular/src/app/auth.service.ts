@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders  } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -9,33 +9,71 @@ export class AuthService {
 
   baseServiceUrl = 'https://localhost:7009/api/';
 
-  registerUser(user: Array<string>) {
+  registerUser(email: string, phone: string, name: string, password: string) {
     return this.http.post(
-      this.baseServiceUrl + 'user/create',
+      this.baseServiceUrl + 'Authentication/Register',
       {
-        email: user[0],
-        name: user[1],
-        phone: user[2],
-        password: user[3],
+        email: email,
+        phone: phone,
+        name: name,
+        password: password,
       },
       {
-        responseType: 'text',
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
       }
     );
   }
 
-  loginUser(loginInfo: Array<string>) {
+  loginUser(email: string, pwd: string) {
     return this.http.post(
       this.baseServiceUrl + 'Authentication/Login',
       {
-        email: loginInfo[0],
-        password: loginInfo[1],
+        email: email,
+        password: pwd,
       },
       {
         headers: new HttpHeaders({
-          "Content-Type": "application/json"
-        })
+          'Content-Type': 'application/json',
+        }),
       }
     );
+  }
+
+  getAllUsers() {
+    return this.http.get(this.baseServiceUrl + 'Employees');
+  }
+
+  deleteUser(id: string) {
+    return this.http.delete(this.baseServiceUrl + 'Employees/' + id, {
+      responseType: 'text',
+    });
+  }
+
+  addUser(email: string, phone: string, name: string, password: string, address: string) {
+    return this.http.post(this.baseServiceUrl + 'Employees', {
+      email: email,
+      phone: phone,
+      name: name,
+      password: password,
+      address: address,
+    });
+  }
+
+  showUser(id:string){
+    return this.http.get(this.baseServiceUrl + 'Employees/' + id);
+  }
+
+  editUser(id: string, email: string, phone: string, name: string,  address: string){
+    return this.http.put(this.baseServiceUrl + 'Employees/'+ id, {
+      email: email,
+      phone: phone,
+      name: name,
+      id: id,
+      address: address,
+    },{
+      responseType: 'text',
+    });
   }
 }
