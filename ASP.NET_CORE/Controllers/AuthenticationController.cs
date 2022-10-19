@@ -162,6 +162,7 @@ namespace ASP.NET_CORE.Controllers
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim("Id", user.Id),
+                    new Claim(ClaimTypes.Role, "Admin"),
                     new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                     new Claim(JwtRegisteredClaimNames.Email, value: user.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
