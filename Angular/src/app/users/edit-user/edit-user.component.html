@@ -3,7 +3,7 @@
     <form
       class="example-form"
       [formGroup]="editUserForm"
-      (ngSubmit)="registerSubmit()"
+      (ngSubmit)="editSubmit()"
     >
       <h1 class="title">Edit User</h1>
       <mat-form-field class="example-full-width" appearance="fill">
@@ -12,9 +12,8 @@
           matInput
           formControlName="email"
           placeholder="Ex. pat@example.com"
-          value="cuongle@gmail.com"
         />
-        <!-- <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-hint>Errors appear instantly!</mat-hint>
         <mat-error
           *ngIf="Email.hasError('email') && !Email.hasError('required')"
         >
@@ -22,12 +21,12 @@
         </mat-error>
         <mat-error *ngIf="Email.hasError('required')">
           Email is <strong>required</strong>
-        </mat-error> -->
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Name</mat-label>
-        <input type="name" matInput formControlName="name" value="Cuong" />
+        <input type="name" matInput formControlName="name"  />
         <mat-hint>Errors appear instantly!</mat-hint>
         <mat-error *ngIf="Name.hasError('required')">
           Password <strong>required</strong>
@@ -52,7 +51,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Password</mat-label>
         <input type="password" matInput formControlName="password" />
         <mat-hint>Errors appear instantly!</mat-hint>
@@ -66,6 +65,11 @@
         <mat-error *ngIf="Password.hasError('required')">
           Password <strong>required</strong>
         </mat-error>
+      </mat-form-field> -->
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address</mat-label>
+        <input type="address" matInput formControlName="address" />
       </mat-form-field>
 
       <div class="example-button-row">

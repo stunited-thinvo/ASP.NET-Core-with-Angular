@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Controllers",
     "\\Models",
     "\\Models\\DTOs"
   ],
-  "SelectedNode": "\\appsettings.json",
+  "SelectedNode": "\\ASP.NET_CORE.sln",
   "PreviewInSolutionExplorer": false
 }
