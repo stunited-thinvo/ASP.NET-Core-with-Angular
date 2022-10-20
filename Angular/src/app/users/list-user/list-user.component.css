@@ -2,7 +2,7 @@
   padding: 5rem;
 } */
 
-table {
+.list {
   width: 60%;
   margin: 0 auto;
 }
@@ -12,5 +12,13 @@ table {
 }
 .example-spacer {
   flex: 1 1 auto;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
 }
 

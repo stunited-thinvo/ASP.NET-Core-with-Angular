@@ -42,7 +42,7 @@ export class AuthService {
   }
 
   getAllUsers() {
-    return this.http.get(this.baseServiceUrl + 'Employees');
+    return this.http.get<any>(this.baseServiceUrl + 'Employees');
   }
 
   deleteUser(id: string) {
