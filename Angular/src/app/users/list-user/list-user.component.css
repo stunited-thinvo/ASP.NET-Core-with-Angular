@@ -3,8 +3,11 @@
 } */
 
 .list {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
+}
+table{
+  width: 100%;
 }
 
 .example-icon {
@@ -19,6 +22,6 @@
 }
 
 td, th {
-  width: 25%;
+  width: 22%;
 }
 
